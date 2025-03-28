@@ -1,0 +1,78 @@
+// 인덱스 테이블 스타일
+.indexTableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.indexTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; // 컬럼 너비 고정
+  
+  th, td {
+    padding: 12px;
+    vertical-align: middle;
+    border-bottom: 1px solid #D3DAE6;
+  }
+  
+  th {
+    background-color: #F5F7FA;
+    font-weight: bold;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    
+    &.sortable {
+      cursor: pointer;
+      
+      &:hover {
+        background-color: #EDF0F5;
+      }
+    }
+    
+    .headerContent {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      
+      svg {
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+    }
+  }
+  
+  td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  tbody tr:hover {
+    background-color: #F5F7FA;
+  }
+  
+  .nameCell {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// 모바일 대응
+@media (max-width: 768px) {
+  .indexTable {
+    table-layout: fixed;
+    width: 100%;
+    
+    th, td {
+      width: auto !important;
+    }
+  }
+} 
